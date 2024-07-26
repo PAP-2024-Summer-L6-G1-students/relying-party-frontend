@@ -1,13 +1,17 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
+import './LandingPage.css'
+
+import reactLogo from '../assets/react.svg'
+import viteLogo from '/vite.svg'
+
+import ExampleAccordions from '../components/ExampleAccordions';
+
+export default function LandingPage() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <div id="landing-page">
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -25,11 +29,7 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <ExampleAccordions />
+    </div>
   )
 }
-
-export default App
