@@ -7,10 +7,10 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './main.css'
 
-import App from './pages/LandingPage.jsx'
+import MainLayout from './layouts/MainLayout.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <MainLayout/>
   </React.StrictMode>,
 )
