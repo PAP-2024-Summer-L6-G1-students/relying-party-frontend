@@ -1,14 +1,16 @@
-#logo{
-    width: 100px;
-    height: 100px;
-}
-header{
+#page-header {
     background-color: #8c52ff;
     overflow: hidden;
     height: 20%;
-}
-#title{
-    text-align: center;
-    margin-top: -115px;
-    
+
+    #logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    #title {
+        text-align: center;
+        margin-top: -115px;
+
+    }
 }
