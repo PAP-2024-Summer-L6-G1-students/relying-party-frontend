@@ -10,6 +10,7 @@ import './main.css'
 
 import LandingPage from './pages/LandingPage.jsx'
 
+import MainLayout from './layouts/MainLayout.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
