@@ -1,0 +1,26 @@
+#results-box {
+    background-color: antiquewhite;
+    border-radius: 30px;
+    border-color: black;
+    border-style: solid;
+    border-width: thick;
+    width: 30%;
+    margin-top: 20px;
+
+    .description {
+        color: black;
+    }
+    #apply{
+        color: white;
+        background-color: red;
+        margin-left: 15px;
+    }
+    #options{
+        display: flex;
+        margin-left: 70%;
+    }
+    .placeholder{
+        width: 25%;
+        height: 25%;
+    }
+}
