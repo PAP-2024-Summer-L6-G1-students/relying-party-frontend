@@ -1,4 +1,4 @@
-#results-box {
+.results-box {
     background-color: antiquewhite;
     border-radius: 30px;
     border-color: black;
@@ -10,12 +10,16 @@
     .description {
         color: black;
     }
-    #apply{
+
+    .organization {
+        color: black;
+    }
+    .apply{
         color: white;
         background-color: red;
         margin-left: 15px;
     }
-    #options{
+    .options{
         display: flex;
         margin-left: 70%;
     }

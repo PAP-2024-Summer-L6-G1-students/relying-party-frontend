@@ -12,7 +12,6 @@ import Results from './components/Results.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <MainLayout/>
-    <Results/>
+    <MainLayout>    <Results organization = {""} placeholder = {""} description = {""} />  </MainLayout>
   </React.StrictMode>,
 )
