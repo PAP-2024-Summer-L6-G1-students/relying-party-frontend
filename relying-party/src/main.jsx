@@ -11,13 +11,20 @@ import './main.css'
 import LandingPage from './pages/LandingPage.jsx'
 
 import MainLayout from './layouts/MainLayout.jsx';
+import Results from './components/Results.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
         <Route path='/' element={<LandingPage />}></Route>
+        <Route path='/Results' element={
+          <MainLayout>
+            <Results organization={""} placeholder={""} description={""} />
+          </MainLayout>
+        }></Route>
       </Routes>
     </Router>
+
   </React.StrictMode>,
 )
