@@ -1,38 +1,54 @@
 #landing-page {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
-  }
-
-  .card {
-    padding: 2em;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    a:nth-of-type(2) .logo {
-      animation: logo-spin infinite 20s linear;
-    }
-  }
+  background-color: #d0c3f1;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.image {
+  width: 350px;
+  height: 350px;
+  margin-left: 10px;
+}
+
+#landing-page h2 {
+  color: rgb(56, 55, 55);
+}
+
+#landing-page h3 {
+  color: white;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.text-over-image {
+  position: absolute;
+  top: 0;
+  left: 10px;
+}
+
+.read-more-container{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  background-color: white;
+  width: 40%;
+  height: 30px;
+  bottom: 20px;
+  left: 20px;
+}
+
+.arrow-icon {
+  position: absolute;
+  right: 0;
+  top: -50px;
+  font-size: 70px;
+  color: rgb(149, 13, 246);
+}
+
+.read-more{
+  margin-right: 10px;
+  margin-left: 10px;
+  color: rgb(149, 13, 246);
 }
