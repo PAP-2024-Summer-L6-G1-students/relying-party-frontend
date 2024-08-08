@@ -1,24 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import FindEventsPage from './components/FindEventsPage';
+import FindEventsPage from './pages/FindEventsPage';
+import Router from 'react-router-dom'
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './main.css'
-import SearchBar from './components/searchBar';
-import App from './components/ExampleAccordions';
-import CheckboxLabels from './components/CheckboxFilter';
+
+import LandingPage from './pages/LandingPage.jsx'
+
+import MainLayout from './layouts/MainLayout.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <FindEventsPage/>
-    <h2> Select What Suits You </h2>
-    <CheckboxLabels/>
-    
-
-    <SearchBar/>
+    <Router>
+      <Routes>
+        <Route path='/' element={<LandingPage />}></Route>
+        <Route path='/FindEvents' element={<FindEventsPage />}></Route>
+      </Routes>
+    </Router>
   </React.StrictMode>,
 )
 
