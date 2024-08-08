@@ -65,7 +65,7 @@ const SearchBar = () => {
         )} */}
 
         
-        {/* <table>
+        <table>
             <tr>
                 <th>Event Name</th>
                 <th> Volunteer Type </th>
@@ -78,7 +78,7 @@ const SearchBar = () => {
                     </tr>
                 ))}
             </tbody>
-        </table> */}
+        </table>
     </div>
     );
 };
