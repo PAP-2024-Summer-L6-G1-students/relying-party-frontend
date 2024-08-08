@@ -64,6 +64,7 @@ const SearchBar = () => {
                 </div>
         )} */}
 
+        {/* this displays the event name and volunteer types as a table  */}
         
         <table>
             <tr>
