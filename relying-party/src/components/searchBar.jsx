@@ -1,34 +1,35 @@
 import React, {useState} from "react";
+import '../components/SearchBar.css'
 
 const SearchBar = () => {
     const [searchInput, setSearchInput] = useState("");
-    const [showSearch, setShowSearch] = useState(true);
+    const [showSearch, setShowSearch] = useState(false);
 
     const events = [
         // environmental conservation
-        { eventName: "Beach Clean Up", eventType: "Environmental Conservation"},
-        { eventName: "Park Restoration Project", eventType: "Environmental Conservation"},
-        { eventName: "Tree Planting", eventType: "Environmental Conservation"},
+        { eventName: "Beach Clean Up", eventType: "Environmental Conservation", location: "", virtual: "In-person"},
+        { eventName: "Park Restoration Project", eventType: "Environmental Conservation", location: "", virtual: "In-person"},
+        { eventName: "Tree Planting", eventType: "Environmental Conservation", location: "", virtual: "In-person"},
         // food service & distribution 
-        { eventName: "Community Food Drive", eventType: "Food Service "},
-        { eventName: "Homeless Shelter Meal Prep", eventType: "Food Service "},
-        { eventName: "Foodbank Distribution", eventType: "Food Service"},
+        { eventName: "Community Food Drive", eventType: "Food Service ", location: "", virtual: "In-person"},
+        { eventName: "Homeless Shelter Meal Prep", eventType: "Food Service ", location: "", virtual: "In-person"},
+        { eventName: "Foodbank Distribution", eventType: "Food Service", location: "", virtual: "In-person"},
         // community support & assistance
-        { eventName: "Senior Center Support", eventType: "Community Support"},
-        { eventName: "Camp Counselor for Kids", eventType: "Community Support"},
-        { eventName: "Teach Tech", eventType: "Community Support"},
+        { eventName: "Senior Center Support", eventType: "Community Support", location: "", virtual: "In-person"},
+        { eventName: "Camp Counselor for Kids", eventType: "Community Support", location: "", virtual: "In-person"},
+        { eventName: "Teach Tech", eventType: "Community Support", location: "", virtual: "Virtual"},
         // animal care & support 
-        { eventName: "Animal Shelter Volunteer", eventType: "Animal Care"},
-        { eventName: "Save Our Marine Life", eventType: "Animal Care"},
-        { eventName: "Foster Pets", eventType: "Animal Care"},
+        { eventName: "Animal Shelter Volunteer", eventType: "Animal Care", location: "", virtual: "In-person"},
+        { eventName: "Save Our Marine Life", eventType: "Animal Care", location: "", virtual: "Virtual"},
+        { eventName: "Foster Pets", eventType: "Animal Care", location: "", virtual: "In-person"},
         // education and tutoring 
-        { eventName: "Literacy Tutoring Program", eventType: "Education & Tutoring"},
-        { eventName: "Arts and Crafts Workshop", eventType: "Education & Tutoring"},
-        { eventName: "Financial Literacy Workshop", eventType: "Education & Tutoring"},
+        { eventName: "Literacy Tutoring Program", eventType: "Education & Tutoring", location: "", virtual: "Virtual"},
+        { eventName: "Arts and Crafts Workshop", eventType: "Education & Tutoring", location: "", virtual: "In-person"},
+        { eventName: "Financial Literacy Workshop", eventType: "Education & Tutoring", location: "", virtual: "Virtual"},
         // health and medical assistance 
-        { eventName: "Blood Donation Drive", eventType: "Health and Medical Assistance"},
-        { eventName: "Women's Menstrual Drive", eventType: "Health and Medical Assistance"},
-        { eventName: "Diaster Relief", eventType: "Health and Medical Assistance"}
+        { eventName: "Blood Donation Drive", eventType: "Health and Medical Assistance", location: "", virtual: "In-person"},
+        { eventName: "Women's Menstrual Drive", eventType: "Health and Medical Assistance", location: "", virtual: "In-person"},
+        { eventName: "Diaster Relief", eventType: "Health and Medical Assistance", location: "", virtual: "In-person"}
     ];
 
     const handleChange = (e) => {
@@ -41,46 +42,40 @@ const SearchBar = () => {
 
     const filteredEvents = events.filter((event) => 
         event.eventName.toLowerCase().includes(searchInput.toLowerCase()) ||
-        event.eventName.toLowerCase().includes(searchInput.toLowerCase()) ||
         event.eventType.toLowerCase().includes(searchInput.toLowerCase()) ||
-        event.eventType.toLowerCase().includes(searchInput.toLowerCase())
+        event.location.toLowerCase().includes(searchInput.toLowerCase()) ||
+        event.virtual.toLowerCase().includes(searchInput.toLowerCase()) 
+
     );
     
     return (
     <div>
         <input 
             type="search"
-            placeholder="Search for events"
+            placeholder="Keywords"
             onChange={handleChange}
             value={searchInput} 
+            className="search-input"
         />
-        <button onClick={toggleResults}>Show Results</button>
+        {/* toggles show results and hide results  */}
+        <button onClick={toggleResults} className="search-button">
+            {showSearch ? "Hide Results" : "Show Results"}
+        </button>
 
-        {/* {showSearch && (
-            <div className="results">
-                <div className="results-content">
-                    <span className="close" onClick={toggleResults}>&times;</span>
-                    <h2>Search results</h2>
+{showSearch && filteredEvents.length > 0 ? (
+                <div className="grid-container">
+                    {filteredEvents.map((event, index) => (
+                        <div key={index} className="grid-item">
+                            <h3>{event.eventName}</h3>
+                            <p>{event.eventType}</p>
+                        </div>
+                    ))}
                 </div>
-        )} */}
-
-        {/* this displays the event name and volunteer types as a table  */}
-        
-        <table>
-            <tr>
-                <th>Event Name</th>
-                <th> Volunteer Type </th>
-            </tr>
-            <tbody>
-                {filteredEvents.map((event, index) => (
-                    <tr key={index}>
-                        <td>{event.eventName}</td>
-                        <td>{event.eventType} </td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
-    </div>
+            ) : (
+                searchInput && <p>No results found.</p>
+            )}
+        </div>
     );
 };
-export default SearchBar
+
+export default SearchBar;
