@@ -1,0 +1,31 @@
+.organizer {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+
+input {
+    border-radius: 70px;
+    border-color: white;
+    border-style: none;
+    font-size: 20px;
+}
+
+.description {
+    width: 375px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.organizer-name, .organizer-contact {
+    height: 50px;
+    width: 170px;
+}
+
+input::placeholder {
+    position: relative;
+    transform: translateY(-40%);
+    font-size: small;
+    padding-bottom: 20px;
+}

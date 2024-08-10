@@ -1,0 +1,33 @@
+.event-details-cont {
+    display: flex;
+    justify-content: space-around;
+}
+
+h3, h4 {
+    color: #8c52ff;
+}
+
+label {
+    margin-right: 15px;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.input-grid input {
+    padding: 20px;
+}
+
+.start-date, .end-date, .start-time, .end-time {
+    width: 70px;
+    height: 30px;
+}
+
+.location, .url {
+    width: 100px;
+    height: 30px;
+}
