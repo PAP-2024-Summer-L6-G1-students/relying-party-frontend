@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <MainLayout>
             <Results
               organization={"Red Cross"}
-              description={"This event will help raise awearness about blood drives happening in Seattle ,Wa"}
+              description={"This event will help raise awearness about blood drives happening in Seattle, Wa"}
               virtual={false}
               startDate={"July 17th"}
               eventType={"Health"}
@@ -35,7 +35,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Results organization={""} description={""} virtual={false} startDate={""}
               eventType={""} favorited={true} onFavorite={""} onApply={""} orgLogo={""} orgLogoAltText={""} />
 
-            <Results organization={""} description={""} virtual={false} startDate={""}
+            <Results organization={""} description={""} virtual={true} startDate={""}
               eventType={""} favorited={true} onFavorite={""} onApply={""} orgLogo={""} orgLogoAltText={""} />
           </MainLayout>
         }></Route>
