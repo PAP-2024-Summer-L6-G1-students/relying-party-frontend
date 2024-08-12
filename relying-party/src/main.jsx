@@ -17,7 +17,26 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/' element={<MainLayout><LandingPage /> </MainLayout>}></Route>
         <Route path='/Results' element={
           <MainLayout>
-            <Results organization={""} placeholder={""} description={""} />
+            <Results
+              organization={"Red Cross"}
+              description={"This event will help raise awearness about blood drives happening in Seattle ,Wa"}
+              virtual={false}
+              startDate={"July 17th"}
+              eventType={"Health"}
+              favorited={false}
+              onFavorite={() => {
+                console.log("Favorite button clicked");
+              }}
+              onApply={() => {
+                console.log("Apply button clicked");
+              }}
+            />
+
+            <Results organization={""} description={""} virtual={false} startDate={""}
+              eventType={""} favorited={true} onFavorite={""} onApply={""} orgLogo={""} orgLogoAltText={""} />
+
+            <Results organization={""} description={""} virtual={false} startDate={""}
+              eventType={""} favorited={true} onFavorite={""} onApply={""} orgLogo={""} orgLogoAltText={""} />
           </MainLayout>
         }></Route>
       </Routes>
