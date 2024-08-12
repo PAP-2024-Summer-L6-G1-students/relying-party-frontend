@@ -1,6 +1,8 @@
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import './Results.css'
 import placeholderImage from '../../images/placeholder.png';
+import IconButton from '@mui/material/IconButton';
+
 export default function Results(props) {
     return (
         <>
@@ -9,7 +11,9 @@ export default function Results(props) {
                 {props.organization}
 
                 <div className='options'>
+                <IconButton color="primary" aria-label="add to shopping cart">
                     <FavoriteIcon sx={{ color: 'red', fontSize: 35 }} />
+                    </IconButton>
                     <button className='apply'>Apply</button>
                 </div>
                 <img className="placeholder" src={placeholderImage} alt='placeholder for companies real image logo' />
