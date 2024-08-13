@@ -11,15 +11,43 @@ import './main.css'
 import LandingPage from './pages/LandingPage.jsx'
 import EventInfo from './pages/EventInfo.jsx'
 import MainLayout from './layouts/MainLayout.jsx';
+import Profile from './pages/Profile.jsx';
+import ContactInfo from './pages/ContactInfo.jsx';
+import EventsApplied from './pages/EventsApplied.jsx';
+import EventsCreated from './pages/EventsCreated.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path='/' element={<LandingPage />}></Route>
+        <Route path='/' element={
+          <MainLayout>
+            <LandingPage />
+          </MainLayout>
+        }></Route>
         <Route path='/EventInfo' element={
           <MainLayout>
             <EventInfo />
+          </MainLayout>
+        }></Route>
+        <Route path='/Profile' element={
+          <MainLayout>
+            <Profile />
+          </MainLayout>
+        }></Route>
+        <Route path='/Profile/EventsApplied' element={
+          <MainLayout>
+            <EventsApplied />
+          </MainLayout>
+        }></Route>
+        <Route path='/Profile/EventsCreated' element={
+          <MainLayout>
+            <EventsCreated />
+          </MainLayout>
+        }></Route>
+        <Route path='/Profile/ContactInfo' element={
+          <MainLayout>
+            <ContactInfo />
           </MainLayout>
         }></Route>
       </Routes>

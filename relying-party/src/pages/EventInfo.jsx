@@ -1,7 +1,6 @@
 import './EventInfo.css';
 import EventOverview from '../components/EventOverview';
 import EventDetails from '../components/EventDetails';
-import MainLayout from '../layouts/MainLayout';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Link } from 'react-router-dom';
 import react, { useState } from 'react';
