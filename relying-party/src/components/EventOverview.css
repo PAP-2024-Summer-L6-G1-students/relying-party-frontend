@@ -1,31 +1,40 @@
-.organizer {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-}
+#event-overview-section {
+    .organizer {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    
+    }
+    input {
+        border-radius: 70px;
+        border-color: white;
+        border-style: none;
+        font-size: 20px;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .description {
+        min-width: 375px;
+        min-height: 100px;
+        margin-bottom: 20px;
+    }
+    
+    .organizer-name, .organizer-contact {
+        min-height: 50px;
+        min-width: 170px;
+    }
+    
+
+    .form-field {
+        position: relative;
+    }
+
+    .field-label {
+        position: absolute;
+        left: 30px;
+        font-size: small;
+    }
 
 
-input {
-    border-radius: 70px;
-    border-color: white;
-    border-style: none;
-    font-size: 20px;
-}
-
-.description {
-    width: 375px;
-    height: 100px;
-    margin-bottom: 20px;
-}
-
-.organizer-name, .organizer-contact {
-    height: 50px;
-    width: 170px;
-}
-
-input::placeholder {
-    position: relative;
-    transform: translateY(-40%);
-    font-size: small;
-    padding-bottom: 20px;
 }

@@ -17,7 +17,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Router>
       <Routes>
         <Route path='/' element={<LandingPage />}></Route>
-        <Route path='/EventInfo' element={<EventInfo />}></Route>
+        <Route path='/EventInfo' element={
+          <MainLayout>
+            <EventInfo />
+          </MainLayout>
+        }></Route>
       </Routes>
     </Router>
   </React.StrictMode>,

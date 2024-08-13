@@ -14,7 +14,6 @@ export default function EventInfo() {
   }
   return (
     <div id='event-info'>
-      <MainLayout/>
       <div className='event-overview'>
         <h3>Event Overview</h3>
         <button className='apply-btn'>Apply</button>

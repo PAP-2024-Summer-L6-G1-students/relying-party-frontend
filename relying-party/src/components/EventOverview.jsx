@@ -2,12 +2,21 @@ import './EventOverview.css'
 
 export default function EventOverview() {
     return (
-        <>
+        <div id='event-overview-section'>
             <div className='organizer'>
-                <input type="text" placeholder='Organizer Name:' className='organizer-name'/>
-                <input type="text" placeholder='Organizer Contact:' className='organizer-contact'/>
+                <div className='form-field'>
+                    <label htmlFor="organizer-name" className='field-label'>Organizer Name:</label>
+                    <input type="text" id='organizer-name' className='organizer-name'/>
+                </div>
+                <div className='form-field'>
+                    <label htmlFor="organizer-contact" className='field-label'>Organizer Contact:</label>
+                    <input type="text" id='organizer-contact' className='organizer-contact'/>
+                </div>
             </div>
-            <input type="text" placeholder='Description:' className='description'/>
-        </>
+            <div className='form-field'>
+                <label htmlFor="description" className='field-label'>Description:</label>
+                <input type="text" id='description' className='description'/>
+            </div>
+        </div>
     )
 }
