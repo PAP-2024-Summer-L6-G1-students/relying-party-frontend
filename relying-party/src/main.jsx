@@ -14,9 +14,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path='/' element={<MainLayout><LandingPage /> </MainLayout>}></Route>
+        <Route path='/' element={<MainLayout headerTitle = 'Landing'><LandingPage /> </MainLayout>}></Route>
         <Route path='/Results' element={
-          <MainLayout>
+          <MainLayout headerTitle = "Results">
             <Results
               organization={"Red Cross"}
               description={"This event will help raise awearness about blood drives happening in Seattle, Wa"}

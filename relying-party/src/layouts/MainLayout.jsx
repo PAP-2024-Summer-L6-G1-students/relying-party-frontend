@@ -4,7 +4,7 @@ import Footer from "../components/Footer.jsx"
 export default function MainLayout(props) {
     return (
         <>
-            <Header></Header>
+            <Header pagetitle = {props.headerTitle}></Header>
             {props.children}
             <Footer></Footer>
         </>
