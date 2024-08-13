@@ -27,4 +27,18 @@
         width: 25%;
         height: 25%;
     }
+
+    .apply {
+        background-color: #1976d2; /* Default blue color */
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    .apply.applied {
+        background-color: green; /* Green color when applied */
+        cursor: not-allowed; /* Indicate it's no longer clickable */
+    }
 }
