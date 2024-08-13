@@ -4,14 +4,9 @@ import Results from '../components/Results.jsx';
 
 const SearchBar = ({ events }) => {
     const [searchInput, setSearchInput] = useState("");
-    const [showSearch, setShowSearch] = useState(false);
 
     const handleChange = (e) => {
         setSearchInput(e.target.value);
-    };
-
-    const toggleResults = () => {
-        setShowSearch(!showSearch);
     };
 
     const filteredEvents = events.filter((event) => 
@@ -21,6 +16,25 @@ const SearchBar = ({ events }) => {
         (event.virtual ? "Virtual" : "In-Person").toLowerCase().includes(searchInput.toLowerCase())
     ); 
 
+    const handleApply = async (eventId) => {
+        try {
+            const identityProviderUserID = "ExampleAccountID"; // REPLACE THIS LINE WITH ACCOUNT ID
+            const response = await fetch(`/accounts/${identityProviderUserID}/events/${eventId}/apply`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+
+            if (response.ok) {
+                console.log("Event successfully applied to.");
+            } else {
+                console.error("Failed to apply for event.");
+            }
+        } catch (error) {
+            console.error("Error applying for event:", error);
+        }
+    };
     
     return (
         <div>
@@ -32,13 +46,8 @@ const SearchBar = ({ events }) => {
                 className="search-input"
             />
 
-            {/* toggles show results and hide results  */}
-            <button onClick={toggleResults} className="search-button">
-                {showSearch ? "Hide Results" : "Show Results"}
-            </button>
 
-
-            {showSearch && filteredEvents.length > 0 ? (
+            {filteredEvents.length > 0 ? (
                 <>
                 {filteredEvents.map((event, index) => (
                     <Results
