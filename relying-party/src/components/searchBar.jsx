@@ -4,16 +4,17 @@ import Results from '../components/Results.jsx';
 
 const SearchBar = ({ events }) => {
     const [searchInput, setSearchInput] = useState("");
-    const [showSearch, setShowSearch] = useState(false);
+    // const [showSearch, setShowSearch] = useState(false);
 
     const handleChange = (e) => {
         setSearchInput(e.target.value);
     };
 
-    const toggleResults = () => {
-        setShowSearch(!showSearch);
-    };
+    // const toggleResults = () => {
+    //     setShowSearch(!showSearch);
+    // };
 
+    // filter events based on the search input 
     const filteredEvents = events.filter((event) => 
         event.organizerName.toLowerCase().includes(searchInput.toLowerCase()) ||
         event.eventType.toLowerCase().includes(searchInput.toLowerCase()) ||
@@ -33,12 +34,12 @@ const SearchBar = ({ events }) => {
             />
 
             {/* toggles show results and hide results  */}
-            <button onClick={toggleResults} className="search-button">
-                {showSearch ? "Hide Results" : "Show Results"}
+            <button onClick={handleChange} className="search-button">
+                Show Results 
             </button>
 
 
-            {showSearch && filteredEvents.length > 0 ? (
+            {filteredEvents.length > 0 ? (
                 <>
                 {filteredEvents.map((event, index) => (
                     <Results
@@ -60,6 +61,7 @@ const SearchBar = ({ events }) => {
                 ))}
                 </>
             ) : (
+                // displays this message only when there is input and no results 
                 searchInput && <p>No results found.</p>
             )}
         </div>

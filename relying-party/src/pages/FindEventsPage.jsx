@@ -35,7 +35,6 @@ const FindEventsPage = () => {
             <p className='reminder'> Must have an account with (name of website) to participate. </p>
             <h2> Search for Volunteer Opportunities </h2>
             <SearchBar events={events} />
-            {/* <CheckboxLabels/> */}
             <Footer/>
         </div>
         
