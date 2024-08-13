@@ -22,6 +22,25 @@ const SearchBar = ({ events }) => {
         (event.virtual ? "Virtual" : "In-Person").toLowerCase().includes(searchInput.toLowerCase())
     ); 
 
+    const handleApply = async (eventId) => {
+        try {
+            const identityProviderUserID = "ExampleAccountID"; // REPLACE THIS LINE WITH ACCOUNT ID
+            const response = await fetch(`/accounts/${identityProviderUserID}/events/${eventId}/apply`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+
+            if (response.ok) {
+                console.log("Event successfully applied to.");
+            } else {
+                console.error("Failed to apply for event.");
+            }
+        } catch (error) {
+            console.error("Error applying for event:", error);
+        }
+    };
     
     return (
         <div>
