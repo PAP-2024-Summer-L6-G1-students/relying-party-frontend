@@ -1,17 +1,33 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../components/searchBar';
 import CheckboxLabels from '../components/CheckboxFilter';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+
 const FindEventsPage = () => {
     const navigate = useNavigate();
     const handleSignInClick = () => {
         navigate('/signin');
     };
+ 
+    // ------------ RETRIEVE EVENTS ------------------
+    const [events, setEvents] = useState([]); // Use state to manage events data
 
+    useEffect(() => {
+        // Fetch events when component mounts
+        fetch('http://localhost:3002/events/test')
+            .then(response => response.json())
+            .then(data => {
+                setEvents(data); // Update state with fetched events
+            })
+            .catch(error => {
+                console.error("There was an error fetching the events!", error);
+            });
+    }, []);
+    // -----------------------------------------------
+    
     return(
-        
         <div>
             <Header/>
             <h1> Find Volunteer Opportunities</h1>
@@ -21,11 +37,12 @@ const FindEventsPage = () => {
                 Sign In
             </button>
             <h2> Search for Volunteer Opportunities </h2>
-            <SearchBar/>
+            <SearchBar events={events} />
             <CheckboxLabels/>
             <Footer/>
         </div>
         
     );
 };
+
 export default FindEventsPage;

@@ -3,7 +3,16 @@ import './Results.css'
 import placeholderImage from '../../images/placeholder.png';
 import IconButton from '@mui/material/IconButton';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+
 export default function Results(props) {
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const options = { month: 'short', day: 'numeric' };
+        const formattedDate = date.toLocaleDateString(undefined, options);
+        const time = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        return `${formattedDate} at ${time}`;
+    };
+
     let virtualString = "Virtual";
     if (props.virtual === false) {
         virtualString = "In-Person";
@@ -24,8 +33,21 @@ export default function Results(props) {
                     </IconButton>
                     <button className='apply' onClick={props.onApply} >Apply</button>
                 </div>
-                <img className="placeholder" src={props.orgLogo ?? placeholderImage} alt={props.orgLogoAltText ?? "This is a placeholder for the companies logo"} />
-                <h4 className='description'>Description: {props.description} <br /> {virtualString} | {props.startDate} | {props.eventType} </h4>
+                
+                <h4 className='description'>
+                    Description: {props.description} <br/>
+                    {formatDate(props.startDate)} to {formatDate(props.endDate)} <br/>
+                    <br/>
+                    Virtual: {virtualString} <br/>
+                    Location: {props.location} <br/>
+                    Event Type: {props.eventType} <br/>
+                    Max Participants: {props.maxParticipants} <br/>
+
+                    <br/>
+                    Contact Info: <br/>
+                    {props.orgEmail} <br/>
+                    {props.orgPhone} <br/>
+                </h4>
             </div>
         </>
     );
