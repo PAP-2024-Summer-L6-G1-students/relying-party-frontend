@@ -1,0 +1,5 @@
+#page-footer {
+    .MuiBottomNavigationAction-root.Mui-selected{
+        color: #8c52ff;
+    }
+}
