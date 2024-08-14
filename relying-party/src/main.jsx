@@ -53,6 +53,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/CreateEvent' element={<MainLayout><CreateEventPage /> </MainLayout>}></Route>
         <Route path='/FindEvents' element={<FindEventsPage />}></Route>
         <Route path='/Results' element={<Results />}></Route>  
+        <Route path='/Profile' element={<Profile />}></Route>  
+
       </Routes>
     </Router>
 
