@@ -52,12 +52,6 @@ const SearchBar = ({ events }) => {
                 className="search-input"
             />
 
-            {/* toggles show results and hide results  */}
-            <button onClick={handleChange} className="search-button">
-                Show Results 
-            </button>
-
-
             {filteredEvents.length > 0 ? (
                 <>
                 {filteredEvents.map((event, index) => (
@@ -74,6 +68,7 @@ const SearchBar = ({ events }) => {
                         eventType={event.eventType}
                         orgEmail={event.organizerEmail}
                         orgPhone={event.organizerPhone}
+                        specialRequirements={event.specialRequirements}
                         onFavorite={() => handleFavorite(event.id)}
                         onApply={() => handleApply(event.id)}
                     />

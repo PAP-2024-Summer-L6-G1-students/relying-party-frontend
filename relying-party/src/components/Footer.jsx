@@ -34,6 +34,8 @@ export default function Footer() {
               icon={<SearchIcon />}
             />
           <BottomNavigationAction
+            component={Link}
+            to = '/CreateEvent'
             label="Add Event"
             value="events"
             icon={<AddIcon />}

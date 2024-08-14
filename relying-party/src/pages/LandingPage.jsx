@@ -9,7 +9,7 @@ export default function LandingPage() {
 
   useEffect(() => {
     // Fetch events when component mounts
-    fetch('http://localhost:3002/events/test')
+    fetch('http://localhost:3002/events')
         .then(response => response.json())
         .then(data => {
             setEvents(data); // Update state with fetched events
@@ -26,17 +26,25 @@ export default function LandingPage() {
 
   return (
     <div id='landing-page'>
-      <h2>Trending Events</h2>
+      <h2>New Events</h2>
             {event1 && (
         <Events 
           header={event1.organizerName} 
           paragraph={event1.eventDescription} 
+          location={event1.location}
+          category={event1.eventType}
+          startDateTime={event1.startDateTime} 
+          endDateTime={event1.endDateTime}
         />
       )}
       {event2 && (
         <Events 
           header={event2.organizerName} 
           paragraph={event2.eventDescription} 
+          location={event1.location}
+          category={event1.eventType}
+          startDateTime={event1.startDateTime} 
+          endDateTime={event1.endDateTime}
         />
       )}
       <h2>Today's Inspiration</h2>
