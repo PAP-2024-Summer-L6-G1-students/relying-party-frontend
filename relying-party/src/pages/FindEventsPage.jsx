@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../components/searchBar';
-import CheckboxLabels from '../components/CheckboxFilter';
+import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const FindEventsPage = () => {
