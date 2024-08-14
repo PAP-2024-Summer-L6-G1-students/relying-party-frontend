@@ -1,11 +1,4 @@
 /* Full page styling */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: rgb(50, 25, 99)2ff;
-}
 
 .profile-page {
     display: flex;
