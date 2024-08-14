@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import FindEventsPage from './pages/FindEventsPage';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignIn from './components/SignIn';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -48,11 +48,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <EventsFavorited />
           </MainLayout>
         }></Route>
-        <Route path='/' element={<MainLayout headerTitle = 'Landing'><LandingPage /> </MainLayout>}></Route>
+        <Route path='/' element={<MainLayout headerTitle='Landing'><LandingPage /> </MainLayout>}></Route>
         <Route path='/Signin' element={<SignIn />}></Route>
         <Route path='/CreateEvent' element={<MainLayout><CreateEventPage /> </MainLayout>}></Route>
         <Route path='/FindEvents' element={<FindEventsPage />}></Route>
-        <Route path='/Results' element={<Results />}></Route>  
+        <Route path='/Results' element={<Results />}></Route>
       </Routes>
     </Router>
 
