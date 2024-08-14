@@ -12,9 +12,9 @@ import LandingPage from './pages/LandingPage.jsx'
 import EventInfo from './pages/EventInfo.jsx'
 import MainLayout from './layouts/MainLayout.jsx';
 import Profile from './pages/Profile.jsx';
-import ContactInfo from './pages/ContactInfo.jsx';
 import EventsApplied from './pages/EventsApplied.jsx';
 import EventsCreated from './pages/EventsCreated.jsx';
+import EventsFavorited from './pages/EventsFavorited.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -45,9 +45,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <EventsCreated />
           </MainLayout>
         }></Route>
-        <Route path='/Profile/ContactInfo' element={
+        <Route path='/Profile/EventsFavorited' element={
           <MainLayout>
-            <ContactInfo />
+            <EventsFavorited />
           </MainLayout>
         }></Route>
       </Routes>
