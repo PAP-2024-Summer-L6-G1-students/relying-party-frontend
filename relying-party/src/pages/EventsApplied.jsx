@@ -6,7 +6,7 @@ export default function EventsApplied() {
 
     useEffect(() => {
         // Fetch events when component mounts
-        fetch('http://localhost:3002/events/test')
+        fetch('http://localhost:3002/events')
             .then(response => response.json())
             .then(data => {
                 setEvents(data); // Update state with fetched events
