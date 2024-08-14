@@ -49,7 +49,13 @@ export default function Results(props) {
                 </div>
 
                 <h4 className='description'>
-                    Description: {props.description} <br />
+                    Description: <br />
+                    {props.description} <br />
+                    <br />
+                    Special Requirements: <br />
+                    {props.specialRequirements} <br />
+                    <br />
+                    Date: <br />
                     {formatDate(props.startDate)} to {formatDate(props.endDate)} <br />
                     <br />
                     Virtual: {virtualString} <br />

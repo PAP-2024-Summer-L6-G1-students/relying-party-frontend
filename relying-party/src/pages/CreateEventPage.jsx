@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Typography, TextField, Button, Box, Select, MenuItem, FormControl, InputLabel, RadioGroup, FormControlLabel, Radio, Checkbox } from '@mui/material';
 import { styled } from '@mui/system';
 import './CreateEventPage.css'; // "This is the CSS file"
@@ -68,52 +68,138 @@ const CustomFormControl = styled(FormControl)({
 
 // "This is the main CreateEventPage component"
 const CreateEventPage = () => {
+  // State to manage form data
+  const [formData, setFormData] = useState({
+    organizerName: '',
+    organizerEmail: '',
+    organizerPhone: '',
+    eventDescription: '',
+    location: '',
+    startDate: '',
+    startTime: '',
+    endDate: '',
+    endTime: '',
+    virtual: false,
+    eventType: '',
+    maxParticipants: '',
+    specialRequirements: ''
+  });
+
+  // State to manage submission messages
+  const [message, setMessage] = useState('');
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value,
+    });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Combine date and time fields into startDateTime and endDateTime
+    const startDateTime = `${formData.startDate}T${formData.startTime}:00.000Z`;
+    const endDateTime = `${formData.endDate}T${formData.endTime}:00.000Z`;
+
+    const eventData = {
+      organizerName: formData.organizerName,
+      organizerEmail: formData.organizerEmail,
+      organizerPhone: formData.organizerPhone,
+      eventDescription: formData.eventDescription,
+      location: formData.location,
+      virtual: formData.virtual,
+      eventType: formData.eventType,
+      maxParticipants: parseInt(formData.maxParticipants, 10),
+      specialRequirements: formData.specialRequirements,
+      startDateTime,
+      endDateTime,
+    };
+
+    try {
+      const response = await fetch('http://localhost:3002/events', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(eventData),
+      });
+
+      if (response.ok) {
+        const newEvent = await response.json();
+        setMessage('Event created successfully!');
+        console.log('Event created successfully:', newEvent);
+        // Optionally reset the form or navigate to another page
+        setFormData({
+          organizerName: '',
+          organizerEmail: '',
+          organizerPhone: '',
+          eventDescription: '',
+          location: '',
+          startDate: '',
+          startTime: '',
+          endDate: '',
+          endTime: '',
+          virtual: false,
+          eventType: '',
+          maxParticipants: '',
+          specialRequirements: ''
+        });
+      } else {
+        setMessage('Failed to create event.');
+        console.error('Failed to create event.');
+      }
+    } catch (error) {
+      setMessage('Error creating event.');
+      console.error('Error creating event:', error);
+    }
+  };
+
   return (
     <Container maxWidth="sm" sx={{ bgcolor: '#d0c3f1', padding: 2, borderRadius: 2, boxShadow: 3, mt: 2 }}>
-      <Box component="form" noValidate autoComplete="off">
-        
-        {/* This right here is the Personal Information */}
+      <Box component="form" noValidate autoComplete="off" onSubmit={handleSubmit}>
+        {/* Personal Information */}
         <Typography variant="h6" color="#8c52ff" gutterBottom>Personal Information</Typography>
-        <CustomTextField label="Organizer Name:" fullWidth required margin="normal" />
+        <CustomTextField name="organizerName" label="Organizer Name:" fullWidth required margin="normal" onChange={handleInputChange} value={formData.organizerName} />
         <Box sx={{ display: 'flex', gap: 2, my: 2 }}>
-          <CustomTextField label="Email:" fullWidth required />
-          <CustomTextField label="Phone:" fullWidth required />
+          <CustomTextField name="organizerEmail" label="Email:" fullWidth required onChange={handleInputChange} value={formData.organizerEmail} />
+          <CustomTextField name="organizerPhone" label="Phone:" fullWidth required onChange={handleInputChange} value={formData.organizerPhone} />
         </Box>
 
         <Box className="dashed-line" />
 
-        {/* This is the Event Overview from line 84 through line 98 */}
+        {/* Event Overview */}
         <Typography variant="h6" color="#8c52ff" gutterBottom>Event Overview</Typography>
-        <CustomTextField label="Event Title:" fullWidth required margin="normal" multiline rows={5} />
-        <CustomTextField label="Description:" fullWidth required margin="normal" multiline rows={5} />
+        <CustomTextField name="eventDescription" label="Description:" fullWidth required margin="normal" multiline rows={5} onChange={handleInputChange} value={formData.eventDescription} />
+        <CustomTextField name="location" label="Location:" fullWidth required margin="normal" onChange={handleInputChange} value={formData.location} />
 
         <Box className="dashed-line" />
 
-        {/* this is the Event Details from 102 to line 117 */}
+        {/* Event Details */}
         <Typography variant="h6" color="#8c52ff" gutterBottom>Event Details</Typography>
         <Box sx={{ display: 'flex', gap: 2, my: 2 }}>
-          <CustomTextField label="Start Date:" type="date" fullWidth required margin="normal" InputLabelProps={{ shrink: true }} />
-          <CustomTextField label="Start Time:" type="time" fullWidth required margin="normal" InputLabelProps={{ shrink: true }} />
-          <CustomTextField label="Location:" fullWidth required margin="normal" />
+          <CustomTextField name="startDate" label="Start Date:" type="date" fullWidth required margin="normal" InputLabelProps={{ shrink: true }} onChange={handleInputChange} value={formData.startDate} />
+          <CustomTextField name="startTime" label="Start Time:" type="time" fullWidth required margin="normal" InputLabelProps={{ shrink: true }} onChange={handleInputChange} value={formData.startTime} />
         </Box>
         <Box sx={{ display: 'flex', gap: 2, my: 2 }}>
-          <CustomTextField label="End Date:" type="date" fullWidth required margin="normal" InputLabelProps={{ shrink: true }} />
-          <CustomTextField label="End Time:" type="time" fullWidth required margin="normal" InputLabelProps={{ shrink: true }} />
-          <CustomTextField label="URL:" fullWidth margin="normal" />
+          <CustomTextField name="endDate" label="End Date:" type="date" fullWidth required margin="normal" InputLabelProps={{ shrink: true }} onChange={handleInputChange} value={formData.endDate} />
+          <CustomTextField name="endTime" label="End Time:" type="time" fullWidth required margin="normal" InputLabelProps={{ shrink: true }} onChange={handleInputChange} value={formData.endTime} />
         </Box>
         <FormControlLabel
-          control={<CustomCheckbox />} 
-          label={<Typography sx={{ fontWeight: 'bold', color: '#8c52ff' }}>Virtual Event</Typography>} 
+          control={<CustomCheckbox name="virtual" checked={formData.virtual} onChange={handleInputChange} />}
+          label={<Typography sx={{ fontWeight: 'bold', color: '#8c52ff' }}>Virtual Event</Typography>}
         />
 
         <Box className="dashed-line" />
 
-        {/* this is the Additional Information from line 121 to line 143 */}
+        {/* Additional Information */}
         <Typography variant="h6" color="#8c52ff" gutterBottom>Additional Information</Typography>
         <Box sx={{ display: 'flex', gap: 2, my: 2 }}>
-          <CustomFormControl fullWidth required margin="normal" sx={{ bgcolor: '#ffffff', borderRadius: 25 }}>
+          <CustomFormControl fullWidth required margin="normal">
             <InputLabel>Event Category:</InputLabel>
-            <Select>
+            <Select name="eventType" value={formData.eventType} onChange={handleInputChange}>
               <MenuItem value="Animals">Animals</MenuItem>
               <MenuItem value="Community">Community</MenuItem>
               <MenuItem value="Education">Education</MenuItem>
@@ -123,14 +209,19 @@ const CreateEventPage = () => {
               <MenuItem value="Other">Other</MenuItem>
             </Select>
           </CustomFormControl>
-          <CustomTextField label="Maximum Participants:" type="number" fullWidth required margin="normal" />
+          <CustomTextField name="maxParticipants" label="Maximum Participants:" type="number" fullWidth required margin="normal" onChange={handleInputChange} value={formData.maxParticipants} />
         </Box>
-        <CustomTextField label="Special Requirements:" fullWidth margin="normal" multiline rows={4} />
+        <CustomTextField name="specialRequirements" label="Special Requirements:" fullWidth margin="normal" multiline rows={4} onChange={handleInputChange} value={formData.specialRequirements} />
 
-        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
-          <Button variant="contained" color="primary" size="large" sx={{ bgcolor: '#8c52ff', borderRadius: '25px' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 3 }}>
+          <Button type="submit" variant="contained" color="primary" size="large" sx={{ bgcolor: '#8c52ff', borderRadius: '25px' }}>
             Submit
           </Button>
+          {message && (
+            <Typography variant="h6" color={message.includes('successfully') ? 'green' : 'red'} sx={{ mt: 2 }}>
+              {message}
+            </Typography>
+          )}
         </Box>
       </Box>
     </Container>

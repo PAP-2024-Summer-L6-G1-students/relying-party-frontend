@@ -48,11 +48,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <EventsFavorited />
           </MainLayout>
         }></Route>
-        <Route path='/' element={<MainLayout headerTitle='Landing'><LandingPage /> </MainLayout>}></Route>
-        <Route path='/Signin' element={<SignIn />}></Route>
-        <Route path='/CreateEvent' element={<MainLayout><CreateEventPage /> </MainLayout>}></Route>
-        <Route path='/FindEvents' element={<FindEventsPage />}></Route>
-        <Route path='/Results' element={<Results />}></Route>
+        <Route path='/'            element={<MainLayout headerTitle = 'Landing'><LandingPage /> </MainLayout>}></Route>
+        <Route path='/Signin'      element={<SignIn />}></Route>
+        <Route path='/CreateEvent' element={<MainLayout headerTitle = 'Create Event'><CreateEventPage /> </MainLayout>}></Route>
+        <Route path='/FindEvents'  element={<MainLayout headerTitle = 'Find Events'><FindEventsPage /> </MainLayout>}></Route>
+        <Route path='/Results'     element={<Results />}></Route>  
       </Routes>
     </Router>
 
