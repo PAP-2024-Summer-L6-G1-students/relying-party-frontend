@@ -1,0 +1,40 @@
+/* CheckboxLabels.css */
+.checkbox-group {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-heading {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  
+  .checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .MuiFormControlLabel-root {
+    flex-wrap: wrap;
+    flex: 1 0 auto;
+    white-space: nowrap;  
+}
+  
+  .MuiCheckbox-root {
+    color: #007bff;
+  }
+  
+  .MuiCheckbox-root.Mui-checked {
+    color: #28a745;
+  }
+  

@@ -7,6 +7,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
 import { Paper } from '@mui/material';
 import './Footer.css'
+import { Link } from 'react-router-dom';
 export default function Footer() {
   const [value, setValue] = React.useState('recents');
 
@@ -19,24 +20,30 @@ export default function Footer() {
       <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, display: "flex", justifyContent: "center" }} elevation={3}>
         <BottomNavigation sx={{ width: 500 }} value={value} onChange={handleChange}>
           <BottomNavigationAction
+            component={Link}
+            to = '/'
             label="Home"
             value="home"
-            icon={<HomeIcon onClick={() => window.location.replace('main.jsx')}/>}
+            icon={<HomeIcon/>}
           />
-          <BottomNavigationAction
-            label="Search"
-            value="search"
-            icon={<SearchIcon />}
-          />
+            <BottomNavigationAction
+              component={Link}
+              to = '/FindEvents'
+              label="Search"
+              value="search"
+              icon={<SearchIcon />}
+            />
           <BottomNavigationAction
             label="Add Event"
             value="events"
             icon={<AddIcon />}
           />
           <BottomNavigationAction
+             component={Link}
+              to = '/results'
             label="Profile"
             value="profile"
-            icon={<PersonIcon />}
+            icon={<PersonIcon/>}
           />
         </BottomNavigation>
       </Paper>

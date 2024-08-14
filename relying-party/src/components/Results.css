@@ -1,0 +1,44 @@
+.results-box {
+    background-color: antiquewhite;
+    border-radius: 30px;
+    border-color: black;
+    border-style: solid;
+    border-width: thick;
+    width: 30%;
+    margin-top: 20px;
+
+    .description {
+        color: black;
+    }
+
+    .organization {
+        color: black;
+    }
+    .apply{
+        color: white;
+        background-color: red;
+        margin-left: 15px;
+    }
+    .options{
+        display: flex;
+        margin-left: 70%;
+    }
+    .placeholder{
+        width: 25%;
+        height: 25%;
+    }
+
+    .apply {
+        background-color: #1976d2; /* Default blue color */
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    .apply.applied {
+        background-color: green; /* Green color when applied */
+        cursor: not-allowed; /* Indicate it's no longer clickable */
+    }
+}
