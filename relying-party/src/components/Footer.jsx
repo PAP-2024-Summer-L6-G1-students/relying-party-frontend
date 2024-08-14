@@ -28,7 +28,7 @@ export default function Footer() {
           />
             <BottomNavigationAction
               component={Link}
-              to = '/search'
+              to = '/FindEvents'
               label="Search"
               value="search"
               icon={<SearchIcon />}

@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import FindEventsPage from './pages/FindEventsPage';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import SignIn from './components/SignIn';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -16,34 +18,16 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
+        <Route path='/Signin' element={<SignIn />}></Route>
         <Route path='/' element={<MainLayout><LandingPage /> </MainLayout>}></Route>
         <Route path='/CreateEvent' element={<MainLayout><CreateEventPage /> </MainLayout>}></Route>
-        <Route path='/Results' element={
-          <MainLayout>
-            <Results
-              organization={"Red Cross"}
-              description={"This event will help raise awearness about blood drives happening in Seattle ,Wa"}
-              virtual={false}
-              startDate={"July 17th"}
-              eventType={"Health"}
-              favorited={false}
-              onFavorite={() => {
-                console.log("Favorite button clicked");
-              }}
-              onApply={() => {
-                console.log("Apply button clicked");
-              }}
-            />
-
-            <Results organization={""} description={""} virtual={false} startDate={""}
-              eventType={""} favorited={true} onFavorite={""} onApply={""} orgLogo={""} orgLogoAltText={""} />
-
-            <Results organization={""} description={""} virtual={false} startDate={""}
-              eventType={""} favorited={true} onFavorite={""} onApply={""} orgLogo={""} orgLogoAltText={""} />
-          </MainLayout>
-        }></Route>
+        <Route path='/FindEvents' element={<FindEventsPage />}></Route>
+        <Route path='/Results' element={<Results />}></Route>  
       </Routes>
     </Router>
 
   </React.StrictMode>,
 )
+
+
+

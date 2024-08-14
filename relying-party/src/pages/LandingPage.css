@@ -3,9 +3,13 @@
 }
 
 .image {
-  width: 350px;
+  width: auto;
   height: 350px;
   margin-left: 10px;
+}
+
+#landing-page p {
+  color: rgb(56, 55, 55);
 }
 
 #landing-page h2 {
@@ -23,8 +27,9 @@
 
 .text-over-image {
   position: absolute;
-  top: 0;
-  left: 10px;
+  top: -20px;
+  left: 20px;
+  font-size: 30px;
 }
 
 .read-more-container{
@@ -42,7 +47,7 @@
 .arrow-icon {
   position: absolute;
   right: 0;
-  top: -50px;
+  top: -55px;
   font-size: 70px;
   color: rgb(149, 13, 246);
 }
@@ -51,4 +56,5 @@
   margin-right: 10px;
   margin-left: 10px;
   color: rgb(149, 13, 246);
+  font-weight: bold;
 }
