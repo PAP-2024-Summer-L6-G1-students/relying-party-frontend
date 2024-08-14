@@ -29,22 +29,22 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           </MainLayout>
         }></Route>
         <Route path='/Profile' element={
-          <MainLayout>
+          <MainLayout headerTitle = 'Profile'>
             <Profile />
           </MainLayout>
         }></Route>
         <Route path='/Profile/EventsApplied' element={
-          <MainLayout>
+          <MainLayout headerTitle = 'Events Applied'>
             <EventsApplied />
           </MainLayout>
         }></Route>
         <Route path='/Profile/EventsCreated' element={
-          <MainLayout>
+          <MainLayout headerTitle = 'Events Created'>
             <EventsCreated />
           </MainLayout>
         }></Route>
         <Route path='/Profile/EventsFavorited' element={
-          <MainLayout>
+          <MainLayout headerTitle = 'Events Favorited'>
             <EventsFavorited />
           </MainLayout>
         }></Route>
