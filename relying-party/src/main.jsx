@@ -1,13 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-<<<<<<< HEAD
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-
-=======
 import FindEventsPage from './pages/FindEventsPage';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import SignIn from './components/SignIn';
->>>>>>> b38a131451b344a7a60d50ebfee0a80b99440074
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
