@@ -1,0 +1,5 @@
+/* CreateEventPage.css */
+.dashed-line {
+    border-top: 6px dashed #8c52ff; /* Increase the border thickness */
+    margin: 20px 0; /* Add some margin for spacing */
+  }
