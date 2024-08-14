@@ -11,13 +11,43 @@ import './main.css'
 
 import CreateEventPage from './pages/CreateEventPage.jsx'
 import LandingPage from './pages/LandingPage.jsx'
+import EventInfo from './pages/EventInfo.jsx'
 import MainLayout from './layouts/MainLayout.jsx';
+import Profile from './pages/Profile.jsx';
+import EventsApplied from './pages/EventsApplied.jsx';
+import EventsCreated from './pages/EventsCreated.jsx';
+import EventsFavorited from './pages/EventsFavorited.jsx';
 import Results from './components/Results.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
+        <Route path='/EventInfo' element={
+          <MainLayout>
+            <EventInfo />
+          </MainLayout>
+        }></Route>
+        <Route path='/Profile' element={
+          <MainLayout>
+            <Profile />
+          </MainLayout>
+        }></Route>
+        <Route path='/Profile/EventsApplied' element={
+          <MainLayout>
+            <EventsApplied />
+          </MainLayout>
+        }></Route>
+        <Route path='/Profile/EventsCreated' element={
+          <MainLayout>
+            <EventsCreated />
+          </MainLayout>
+        }></Route>
+        <Route path='/Profile/EventsFavorited' element={
+          <MainLayout>
+            <EventsFavorited />
+          </MainLayout>
+        }></Route>
         <Route path='/' element={<MainLayout headerTitle = 'Landing'><LandingPage /> </MainLayout>}></Route>
         <Route path='/Signin' element={<SignIn />}></Route>
         <Route path='/CreateEvent' element={<MainLayout><CreateEventPage /> </MainLayout>}></Route>

@@ -1,0 +1,24 @@
+#event-info {
+  background-color: #d0c3f1;
+  padding-bottom: 150px;
+
+  .event-overview {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .apply-btn {
+    background-color: #8c52ff;
+  }
+  
+  
+  .horizontal-line {
+    border-top: 7px dashed;
+    color: #8c52ff;
+  }
+
+  h3, h4 {
+    color: #8c52ff;
+  }
+}
