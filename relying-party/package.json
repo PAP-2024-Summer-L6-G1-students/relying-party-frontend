@@ -13,11 +13,20 @@
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
     "@fontsource/roboto": "^5.0.13",
+    "@fortawesome/fontawesome-free": "^6.6.0",
     "@mui/icons-material": "^5.16.5",
     "@mui/material": "^5.16.5",
+<<<<<<< HEAD
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^6.26.1"
+=======
+    "mdb-react-ui-kit": "^8.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0",
+    "react-scripts": "^5.0.1"
+>>>>>>> fa015c7fb2c414ec0e70c19329a22d0b0c608bb6
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

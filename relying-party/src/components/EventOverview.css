@@ -1,0 +1,40 @@
+#event-overview-section {
+    .organizer {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    
+    }
+    input {
+        border-radius: 70px;
+        border-color: white;
+        border-style: none;
+        font-size: 20px;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .description {
+        min-width: 375px;
+        min-height: 100px;
+        margin-bottom: 20px;
+    }
+    
+    .organizer-name, .organizer-contact {
+        min-height: 50px;
+        min-width: 170px;
+    }
+    
+
+    .form-field {
+        position: relative;
+    }
+
+    .field-label {
+        position: absolute;
+        left: 30px;
+        font-size: small;
+    }
+
+
+}

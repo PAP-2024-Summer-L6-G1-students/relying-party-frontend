@@ -28,19 +28,21 @@ export default function Footer() {
           />
             <BottomNavigationAction
               component={Link}
-              to = '/search'
+              to = '/FindEvents'
               label="Search"
               value="search"
               icon={<SearchIcon />}
             />
           <BottomNavigationAction
+            component={Link}
+            to = '/CreateEvent'
             label="Add Event"
             value="events"
             icon={<AddIcon />}
           />
           <BottomNavigationAction
              component={Link}
-              to = '/results'
+              to = '/Profile'
             label="Profile"
             value="profile"
             icon={<PersonIcon/>}
