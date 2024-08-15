@@ -18,13 +18,24 @@ import EventsApplied from './pages/EventsApplied.jsx';
 import EventsCreated from './pages/EventsCreated.jsx';
 import EventsFavorited from './pages/EventsFavorited.jsx';
 import Results from './components/Results.jsx';
+<<<<<<< HEAD
+import ApplicationPage from './pages/ApplicationPage.jsx';
+=======
 import LoginReceiver from './pages/LoginReceiver.jsx';
+>>>>>>> fa015c7fb2c414ec0e70c19329a22d0b0c608bb6
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
+<<<<<<< HEAD
+        <Route path='/' element={<MainLayout><LandingPage /> </MainLayout>}></Route>
+        <Route path='/Application' element={<MainLayout><ApplicationPage /> </MainLayout>}></Route>
+        <Route path='/CreateEvent' element={<MainLayout><CreateEventPage /> </MainLayout>}></Route>
+        <Route path='/Results' element={
+=======
         <Route path='/EventInfo' element={
+>>>>>>> fa015c7fb2c414ec0e70c19329a22d0b0c608bb6
           <MainLayout>
             <EventInfo />
           </MainLayout>
