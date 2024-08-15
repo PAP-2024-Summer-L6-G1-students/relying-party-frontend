@@ -11,12 +11,14 @@ import CreateEventPage from './pages/CreateEventPage.jsx'
 import LandingPage from './pages/LandingPage.jsx'
 import MainLayout from './layouts/MainLayout.jsx';
 import Results from './components/Results.jsx';
+import ApplicationPage from './pages/ApplicationPage.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
         <Route path='/' element={<MainLayout><LandingPage /> </MainLayout>}></Route>
+        <Route path='/Application' element={<MainLayout><ApplicationPage /> </MainLayout>}></Route>
         <Route path='/CreateEvent' element={<MainLayout><CreateEventPage /> </MainLayout>}></Route>
         <Route path='/Results' element={
           <MainLayout>
