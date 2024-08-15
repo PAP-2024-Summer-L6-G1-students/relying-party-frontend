@@ -24,7 +24,8 @@ function SignIn() {
               <p className="text-white-50 mb-3">To continue using this website, please login below </p>
 
               
-              <MDBBtn className="login-button" size='lg'>
+              <MDBBtn className="login-button" size='lg' 
+              onClick={()=>location.href="https://localhost:5173/sso/login/" + encodeURIComponent("https://localhost:5174")}>
                 Login with SSO
               </MDBBtn>
 

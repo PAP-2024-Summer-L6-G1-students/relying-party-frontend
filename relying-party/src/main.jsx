@@ -18,6 +18,7 @@ import EventsApplied from './pages/EventsApplied.jsx';
 import EventsCreated from './pages/EventsCreated.jsx';
 import EventsFavorited from './pages/EventsFavorited.jsx';
 import Results from './components/Results.jsx';
+import LoginReceiver from './pages/LoginReceiver.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -54,6 +55,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/FindEvents' element={<MainLayout headerTitle = "Find Events"><FindEventsPage /></MainLayout>}></Route>
         <Route path='/Results' element={<Results />}></Route>  
         <Route path='/Profile' element={<Profile />}></Route>  
+        <Route path='/login-receiver/:authorization' element={<LoginReceiver />}></Route>
 
       </Routes>
     </Router>

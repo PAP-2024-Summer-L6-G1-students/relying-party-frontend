@@ -25,7 +25,8 @@ const SearchBar = ({ events }) => {
     const handleApply = async (eventId) => {
         try {
             const identityProviderUserID = "ExampleAccountID"; // REPLACE THIS LINE WITH ACCOUNT ID
-            const response = await fetch(`http://localhost:3002/accounts/${identityProviderUserID}/events/${eventId}/apply`, {
+            const response = await fetch(`https://localhost:3003/accounts/${identityProviderUserID}/events/${eventId}/apply`, {
+                credentials: 'include',
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
