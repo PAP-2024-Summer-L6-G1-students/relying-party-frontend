@@ -9,7 +9,9 @@ export default function LandingPage() {
 
   useEffect(() => {
     // Fetch events when component mounts
-    fetch('http://localhost:3002/events')
+    fetch('https://localhost:3003/events', {
+      credentials: 'include',
+    })
         .then(response => response.json())
         .then(data => {
             setEvents(data); // Update state with fetched events

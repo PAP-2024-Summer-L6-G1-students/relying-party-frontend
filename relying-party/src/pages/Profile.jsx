@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../pages/Profile.css'
 import { Link } from 'react-router-dom';
 import Accordion from '@mui/material/Accordion';
@@ -10,17 +10,27 @@ import Button from '@mui/material/Button';
 
 
 export default function Profile() {
-    // tester profile state 
     const [profile, setProfile] = useState({
-        firstName: 'John', 
-        lastName: 'Doe',
-        address: '123 45th St, Seattle, WA',
-        phone: '222-222-2222',
-        birthday: '01/31/2000',
-        email: 'johndoe@example.com',
-        bio: 'this is an example bio for john doe'
-        
+        firstName: 'N/A', 
+        lastName: 'N/A',
+        address: 'N/A',
+        phone: 'XXX-XXX-XXXX',
+        birthday: 'XX/XX/XXXX',
+        email: 'N/A',
+        bio: 'N/A'
     });
+
+    // On start up grabs user info from identity provider
+    useEffect(()=>{
+        async function gettingInfo() {
+            const result = await fetch("https://localhost:3003/get-user-info", {credentials: 'include'});
+            const resultData = await result.json();
+            console.log(resultData);
+            setProfile(resultData);
+        }
+        gettingInfo();
+    } , []);
+
 
     return (
 

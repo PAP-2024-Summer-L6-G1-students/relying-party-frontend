@@ -119,7 +119,8 @@ const CreateEventPage = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:3002/events', {
+      const response = await fetch('https://localhost:3003/events', {
+        credentials: 'include',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

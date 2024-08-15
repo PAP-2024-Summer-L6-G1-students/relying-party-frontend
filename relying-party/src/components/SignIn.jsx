@@ -24,12 +24,13 @@ function SignIn() {
               <p className="text-white-50 mb-3">To continue using this website, please login below </p>
 
               
-              <MDBBtn className="login-button" size='lg'>
+              <MDBBtn className="login-button" size='lg' 
+              onClick={()=>location.href="https://localhost:5173/sso/login/" + encodeURIComponent("https://localhost:5174")}>
                 Login with SSO
               </MDBBtn>
 
               {/* sign up link will be redirected to identity provider sign up */}
-              <p className="sign-up-text"> Don't have an account? Click here to <a href="">sign up </a>.</p>
+              <p className="sign-up-text"> Don't have an account? Click here to <a href="https://localhost:5173/create-account">sign up </a>.</p>
 
 
               <hr className="my-4" />
