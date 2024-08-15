@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import FindEventsPage from './pages/FindEventsPage';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignIn from './components/SignIn';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -29,29 +29,29 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           </MainLayout>
         }></Route>
         <Route path='/Profile' element={
-          <MainLayout>
+          <MainLayout headerTitle = 'Profile'>
             <Profile />
           </MainLayout>
         }></Route>
         <Route path='/Profile/EventsApplied' element={
-          <MainLayout>
+          <MainLayout headerTitle = 'Events Applied'>
             <EventsApplied />
           </MainLayout>
         }></Route>
         <Route path='/Profile/EventsCreated' element={
-          <MainLayout>
+          <MainLayout headerTitle = 'Events Created'>
             <EventsCreated />
           </MainLayout>
         }></Route>
         <Route path='/Profile/EventsFavorited' element={
-          <MainLayout>
+          <MainLayout headerTitle = 'Events Favorited'>
             <EventsFavorited />
           </MainLayout>
         }></Route>
         <Route path='/' element={<MainLayout headerTitle = 'Landing'><LandingPage /> </MainLayout>}></Route>
         <Route path='/Signin' element={<SignIn />}></Route>
-        <Route path='/CreateEvent' element={<MainLayout><CreateEventPage /> </MainLayout>}></Route>
-        <Route path='/FindEvents' element={<FindEventsPage />}></Route>
+        <Route path='/CreateEvent' element={<MainLayout headerTitle = 'Create Events'><CreateEventPage /> </MainLayout>}></Route>
+        <Route path='/FindEvents' element={<MainLayout headerTitle = "Find Events"><FindEventsPage /></MainLayout>}></Route>
         <Route path='/Results' element={<Results />}></Route>  
         <Route path='/Profile' element={<Profile />}></Route>  
 

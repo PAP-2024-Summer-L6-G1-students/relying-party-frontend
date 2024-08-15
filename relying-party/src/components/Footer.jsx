@@ -42,7 +42,7 @@ export default function Footer() {
           />
           <BottomNavigationAction
              component={Link}
-              to = '/results'
+              to = '/Profile'
             label="Profile"
             value="profile"
             icon={<PersonIcon/>}
