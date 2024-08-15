@@ -30,7 +30,7 @@ function SignIn() {
               </MDBBtn>
 
               {/* sign up link will be redirected to identity provider sign up */}
-              <p className="sign-up-text"> Don't have an account? Click here to <a href="">sign up </a>.</p>
+              <p className="sign-up-text"> Don't have an account? Click here to <a href="https://localhost:5173/create-account">sign up </a>.</p>
 
 
               <hr className="my-4" />
